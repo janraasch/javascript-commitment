@@ -1,0 +1,43 @@
+{
+  "name": "javascript-commitment",
+  "version": "0.1.0",
+  "description": "A commit message generator for JavaScript",
+  "main": "index.js",
+  "files": [
+    "commit_messages.js",
+    "index.js"
+  ],
+  "scripts": {
+    "pull": "6to5-node scripts/pull.js",
+    "test": "npm run lint && npm run mocha",
+    "lint": "eslint *.js",
+    "mocha": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janraasch/javascript-commitment.git"
+  },
+  "keywords": [
+    "vcs",
+    "git",
+    "fun",
+    "messages",
+    "commit"
+  ],
+  "author": "Jan Raasch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/janraasch/javascript-commitment/issues"
+  },
+  "homepage": "https://github.com/janraasch/javascript-commitment",
+  "devDependencies": {
+    "6to5": "^3.6.0",
+    "download": "^4.0.0",
+    "ent": "^2.2.0",
+    "eslint": "^0.14.1",
+    "lodash": "^3.2.0",
+    "mem-fs": "^1.0.1",
+    "mem-fs-editor": "^1.2.1",
+    "mocha": "^2.1.0"
+  }
+}
