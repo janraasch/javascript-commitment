@@ -8,7 +8,7 @@ JavaScript adoption of the great [Commitment](https://github.com/ngerakines/comm
 Install via `npm install javascript-commitment`. Then use the module in your code:
 
 ```javascript
-var commitment = require('javascript-commitment')
+var commitment = require('javascript-commitment');
 
 var commit = commitment.whatThe();
 console.log('Random commit message', commit.message);
