@@ -1,6 +1,6 @@
 # javascript-commitment [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] ![more fixes](http://img.shields.io/badge/more-fixes-ff69b0.svg)
 
-JavaScript adoption of the great [Commitment][commitment-url] project. For a quick laugh and a **random commit message** for the gentle programmer.
+> JavaScript adoption of the great [Commitment][commitment-url] project. For a quick laugh and a **random commit message** for the gentle programmer.
 
 *Visit [http://whatthecommit.com/](http://whatthecommit.com/) for the web version.*
 
