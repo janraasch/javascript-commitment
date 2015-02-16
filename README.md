@@ -1,6 +1,6 @@
 # javascript-commitment [![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] ![more fixes](http://img.shields.io/badge/more-fixes-ff69b0.svg)
 
-JavaScript adoption of the great [Commitment](https://github.com/ngerakines/commitment) project. For a quick laugh and a **random commit message** for the gentle programmer.
+JavaScript adoption of the great [Commitment][commitment-url] project. For a quick laugh and a **random commit message** for the gentle programmer.
 
 *Visit [http://whatthecommit.com/](http://whatthecommit.com/) for the web version.*
 
@@ -26,6 +26,8 @@ Returns a JavaScript Object with a `message` String and a `permalink` String.
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License) © [Jan Raasch](http://janraasch.com)
+
+[commitment-url]: https://github.com/ngerakines/commitment
 
 [npm-url]: https://npmjs.org/package/javascript-commitment
 [npm-image]: http://img.shields.io/npm/v/javascript-commitment.svg
