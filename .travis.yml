@@ -2,3 +2,13 @@ language: node_js
 node_js:
 - '0.10'
 - '0.11'
+deploy:
+  provider: npm
+  email: jan@janraasch.com
+  api_key:
+    secure: KzOsgBbDnR22wO2+B1cBtKq+diU7c83HYC82Y5m2t6vPC0EEotUbAR2tm3ypr0a4u1DOn1y1+VikOdwT8lPUAY1BhYZW3j1upqfX/KL+GHrqe7mUNTvKNf2ZEH7etluCo8EcH+0dxakUY5XaZ/jS5ZCssQXmQ2SgCIE+Wfo6sLk=
+  on:
+    tags: true
+    repo: janraasch/javascript-commitment
+    node: '0.10'
+    branch: master
