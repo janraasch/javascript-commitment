@@ -3,7 +3,6 @@
     "node": true
   },
   "rules": {
-    "no-unused-vars": [2, {"vars": "local", "args": "none"}],
     "camelcase": 0
   }
 }

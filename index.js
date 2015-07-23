@@ -12,7 +12,7 @@ var random_choice = function (keys) {
   return keys[Math.floor(Math.random() * keys.length)];
 };
 
-var whatThe = exports.whatThe = function () {
+exports.whatThe = function () {
   var hash = random_choice(Object.keys(messages));
   var message = messages[hash];
   var url = "http://whatthecommit.com/" + hash;
