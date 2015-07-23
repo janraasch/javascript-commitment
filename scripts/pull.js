@@ -5,11 +5,11 @@ const memFs = require('mem-fs')
 const editor = require('mem-fs-editor')
 const ent = require('ent')
 
-const commit_messages_txt = 'https://raw.githubusercontent.com/ngerakines/commitment/master/commit_messages.txt'
+const commitMessagesTxt = 'https://raw.githubusercontent.com/ngerakines/commitment/master/commit_messages.txt'
 const template = (json) => `"use strict";\nmodule.exports = ${JSON.stringify(json, null, ' ')};\n`
 
 const download = new Download({mode: '755'})
-    .get(commit_messages_txt)
+    .get(commitMessagesTxt)
     .dest('./downloads')
 
 const store = memFs.create()

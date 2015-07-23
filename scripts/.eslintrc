@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "semi": [2, "never"],
+    "quotes": [2, "single", "avoid-escape"]
+  }
+}
