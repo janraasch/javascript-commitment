@@ -1,4 +1,4 @@
-#!/usr/bin/env 6to5-node
+#!/usr/bin/env babel-node
 const crypto = require('crypto')
 const Download = require('download')
 const memFs = require('mem-fs')

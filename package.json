@@ -8,7 +8,7 @@
     "index.js"
   ],
   "scripts": {
-    "pull": "6to5-node scripts/pull.js",
+    "pull": "babel-node scripts/pull.js",
     "test": "npm run lint && npm run mocha",
     "lint": "eslint *.js",
     "mocha": "mocha test.js"
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/janraasch/javascript-commitment",
   "devDependencies": {
-    "6to5": "^3.6.0",
+    "babel": "^5.8.3",
     "download": "^4.0.0",
     "ent": "^2.2.0",
     "eslint": "^0.24.1",
