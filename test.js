@@ -17,6 +17,10 @@ describe("javascript-commitment", function () {
         assert.strictEqual(_.isString(message), true);
         assert.strictEqual(_.isString(permalink), true);
         assert.strictEqual(permalink.indexOf("http://whatthecommit.com/"), 0);
+        assert.strictEqual(message.indexOf("XNAMEX"), -1);
+        assert.strictEqual(message.indexOf("XUPPERNAMEX"), -1);
+        assert.strictEqual(message.indexOf("XLOWERNAMEX"), -1);
+        assert.strictEqual(message.match(/XNUM([0-9,]*)X/g), null);
       });
     });
   });
