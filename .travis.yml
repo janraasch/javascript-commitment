@@ -3,12 +3,12 @@ language: node_js
 node_js:
 - '0.10'
 - '0.12'
-- 'iojs'
+- iojs
 deploy:
   provider: npm
   email: jan@janraasch.com
   api_key:
-    secure: KzOsgBbDnR22wO2+B1cBtKq+diU7c83HYC82Y5m2t6vPC0EEotUbAR2tm3ypr0a4u1DOn1y1+VikOdwT8lPUAY1BhYZW3j1upqfX/KL+GHrqe7mUNTvKNf2ZEH7etluCo8EcH+0dxakUY5XaZ/jS5ZCssQXmQ2SgCIE+Wfo6sLk=
+    secure: KUvxS3p24a0cYTfGsIBlnf/I7XiCG2P5Zp9MjR87vivOwfMf3Su6mwHhOqyodpoGT+ZoEm9atgwHhLSfxfhyI9US6PTeRB1L7Bl1qEgodkC1zYwbfCkMp1+bkpJAiguazd2Iz/Cy7VtRESdIEdUpaBo/vY6HpU6DyLovplEjoUM=
   on:
     tags: true
     repo: janraasch/javascript-commitment
