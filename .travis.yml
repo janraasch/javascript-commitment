@@ -12,5 +12,5 @@ deploy:
   on:
     tags: true
     repo: janraasch/javascript-commitment
-    node: '0.10'
+    node: '0.12'
     branch: master
