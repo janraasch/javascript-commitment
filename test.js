@@ -7,9 +7,20 @@ var sut = require("./index");
 var lib = require("./lib");
 var quick_check = function (describe_string, it_string, it_func) {
   return describe(describe_string, function () {
-    return _.times(500, function (n) {
+    var times = 500;
+    var counter;
+    before(function () {
+      counter = 0;
+    });
+    after(function () {
+      assert.strictEqual(counter, times);
+    });
+    return _.times(times, function (n) {
       n = n + 1;
-      return it(it_string + " (try #" + n + ")", function () { return it_func; });
+      return it(it_string + " (try #" + n + ")", function () {
+        it_func();
+        counter = counter + 1;
+      });
     });
   });
 };
