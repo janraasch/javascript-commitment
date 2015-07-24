@@ -9,7 +9,7 @@ var quick_check = function (describe_string, it_string, it_func) {
   return describe(describe_string, function () {
     return _.times(500, function (n) {
       n = n + 1;
-      it(it_string + " (try #" + n + ")", function () { return it_func; });
+      return it(it_string + " (try #" + n + ")", function () { return it_func; });
     });
   });
 };
