@@ -72,6 +72,12 @@ describe("javascript-commitment", function () {
       assert.strictEqual((result > 599), true);
     });
   });
+  quick_check("lib.random_choice", "randomly picks a value of the given Array",
+  function () {
+    var array = ["MyVal0", 3, "Tante", "Onkel", "hund"];
+    var result = lib.random_choice(array);
+    assert.strictEqual((array.indexOf(result) > -1), true);
+  });
   quick_check("whatThe", "returns a random message and its link", function () {
     var response = sut.whatThe();
     var message = response.message;
