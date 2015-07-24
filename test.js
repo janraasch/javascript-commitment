@@ -30,6 +30,18 @@ describe("javascript-commitment", function () {
     });
   });
   describe("lib.replace_xnumx", function () {
+    quick_check("replaces XNUMX with a random integer x", "with 0 < x < 1000",
+    function () {
+      var result = parseInt(lib.replace_xnumx(null, ""), 10);
+      assert.strictEqual((result < 1000), true);
+      assert.strictEqual((result > 0), true);
+    });
+    quick_check("replaces XNUM3X with a random integer x", "with 0 < x < 4",
+    function () {
+      var result = parseInt(lib.replace_xnumx(null, "3"), 10);
+      assert.strictEqual((result < 4), true);
+      assert.strictEqual((result > 0), true);
+    });
     quick_check("replaces XNUM,5X with a random integer x", "with 0 < x < 6",
     function () {
       var result = parseInt(lib.replace_xnumx(null, ",5"), 10);
