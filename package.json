@@ -33,10 +33,10 @@
   "homepage": "https://github.com/janraasch/javascript-commitment",
   "devDependencies": {
     "babel": "^5.8.3",
-    "babel-eslint": "^3.1.26",
+    "babel-eslint": "^4.0.10",
     "download": "^4.0.0",
     "ent": "^2.2.0",
-    "eslint": "^0.24.1",
+    "eslint": "^1.1.0",
     "lodash": "^3.2.0",
     "mem-fs": "^1.0.1",
     "mem-fs-editor": "^2.0.4",
