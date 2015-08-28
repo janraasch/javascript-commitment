@@ -7,54 +7,64 @@ const ent = require('ent')
 
 const commitMessagesTxt = 'https://raw.githubusercontent.com/ngerakines/commitment/master/commit_messages.txt'
 const humansTxt = 'https://raw.githubusercontent.com/ngerakines/commitment/master/static/humans.txt'
-const template = (json) => `'use strict';\nmodule.exports = ${JSON.stringify(json, null, ' ')};\n`
-
-// TODO: remove code dup (`downloadMessages` vs. `downloadHumans`).
-const downloadMessages = new Download({mode: '755'}).get(commitMessagesTxt).dest('./downloads')
-const downloadHumans = new Download({mode: '755'}).get(humansTxt).dest('./downloads')
+const template = (json) => `"use strict";\nmodule.exports = ${JSON.stringify(json, null, ' ')};\n`
 
 // Behaves like Python's `f.readlines()`.
-const readlines = (file) => file.contents.toString().split(/\r\n|\r|\n/g).map(line => `${line}\n`)
+const readlines = (string) => string.split(/\r\n|\r|\n/g).map(line => `${line}\n`)
 
 // Behaves like Python's `hashlib.md5(line).hexdigest()`.
 const hexdigest = (string) => crypto.createHash('md5').update(string).digest('hex')
 
-console.log('Updating ./commit_messages.js')
-
-downloadMessages.run((err, files) => {
-    if (err || !files.length || !files[0]) { throw err }
-    const store = memFs.create()
-    const fs = editor.create(store)
-    let json = {}
-
-    readlines(files[0]).forEach(line => {
-        let message = ent.decode(line.replace(/\n/g, '').replace(/<br\/>/g, '\n'))
-        if (message.length) { json[hexdigest(line)] = message }
+// Promisify `Download`.
+const getContentString = (url) => {
+  return new Promise((resolve, reject) => {
+    new Download({mode: '755'}).get(url).dest('./downloads').run((err, files) => {
+      if (err || !files.length || !files[0]) { return reject(err) }
+      else { return resolve(files[0].contents.toString()) }
     })
+  })
+}
 
-    fs.write('./commit_messages.js', template(json))
-    fs.commit(() => console.log('All done...'))
-})
+const transformMessages = (string) => {
+  let json = {}
+  readlines(string).forEach(line => {
+    let message = ent.decode(line.replace(/\n/g, '').replace(/<br\/>/g, '\n'))
+    if (message.length) { json[hexdigest(line)] = message }
+  })
+  return json
+}
 
-console.log('Updating ./humans.js')
+const transformHumans = (string) => [
+    'Nick', 'Steve', 'Andy', 'Qi', 'Fanny', 'Sarah', 'Cord', 'Todd',
+    'Chris', 'Pasha', 'Gabe', 'Tony', 'Jason', 'Randal', 'Ali', 'Kim',
+    'Rainer', 'Guillaume', 'Kelan', 'David', 'John', 'Stephen', 'Tom',
+    'Steven', 'Jen', 'Marcus', 'Edy', 'Rachel'
+  ].concat(
+    string.split('\n')
+      .filter(line => line.indexOf('Name: ') === 0)
+      .map(line => line.substring(6))
+      .map(data => (data.indexOf('github:') === 0) ? data.substring(7) : data.split(' ')[0])
+  )
 
-downloadHumans.run((err, files) => {
-    if (err || !files.length || !files[0]) { throw err }
+async function update(file, url, transform) {
+  console.log(`Updating ${file}...`)
+  try {
+    const content = await getContentString(url)
     const store = memFs.create()
     const fs = editor.create(store)
+    fs.write(file, template(transform(content)))
+    fs.commit(() => console.log(`All done updating ${file}.`))
+  } catch (err) {
+    console.log(`Failed updating ${file}.`)
+    console.log(`Error: ${err}.`)
+  }
+}
 
-    let json = [
-      'Nick', 'Steve', 'Andy', 'Qi', 'Fanny', 'Sarah', 'Cord', 'Todd',
-      'Chris', 'Pasha', 'Gabe', 'Tony', 'Jason', 'Randal', 'Ali', 'Kim',
-      'Rainer', 'Guillaume', 'Kelan', 'David', 'John', 'Stephen', 'Tom',
-      'Steven', 'Jen', 'Marcus', 'Edy', 'Rachel'
-    ].concat(
-      files[0].contents.toString().split('\n')
-        .filter(line => line.indexOf('Name: ') === 0)
-        .map(line => line.substring(6))
-        .map(data => (data.indexOf('github:') === 0) ? data.substring(7) : data.split(' ')[0])
-    )
-
-    fs.write('./humans.js', template(json))
-    fs.commit(() => console.log('All done...'))
-})
+(async function() {
+  try {
+    await update('./commit_messages.js', commitMessagesTxt, transformMessages)
+    await update('./humans.js', humansTxt, transformHumans)
+  } catch (err) {
+    console.log(`Error: ${err}.`)
+  }
+}())
