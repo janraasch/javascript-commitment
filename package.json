@@ -4,6 +4,7 @@
   "description": "A commit message generator for JavaScript",
   "main": "index.js",
   "files": [
+    "humans.js",
     "commit_messages.js",
     "index.js",
     "lib.js"
