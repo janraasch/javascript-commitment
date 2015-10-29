@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/janraasch/javascript-commitment",
   "devDependencies": {
-    "babel": "^5.8.3",
+    "babel": "^6.0.2",
     "babel-eslint": "^4.0.10",
     "download": "^4.0.0",
     "ent": "^2.2.0",
