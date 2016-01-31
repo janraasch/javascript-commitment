@@ -10,7 +10,7 @@
     "lib.js"
   ],
   "scripts": {
-    "pull": "babel-node scripts/pull.js --stage 1",
+    "pull": "babel-node scripts/pull.js",
     "test": "npm run lint && npm run mocha",
     "lint": "eslint *.js scripts/*.js",
     "mocha": "mocha test.js"
@@ -34,7 +34,10 @@
   "homepage": "https://github.com/janraasch/javascript-commitment",
   "devDependencies": {
     "babel": "^6.0.2",
+    "babel-cli": "^6.4.5",
     "babel-eslint": "^4.0.10",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-3": "^6.3.13",
     "download": "^4.0.0",
     "ent": "^2.2.0",
     "eslint": "^1.1.0",
