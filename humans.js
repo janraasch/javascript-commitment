@@ -80,5 +80,6 @@ module.exports = [
  "Shubham",
  "Lyntor",
  "Wade",
- "Jan"
+ "Jan",
+ "Fabian"
 ];
