@@ -3,7 +3,8 @@ language: node_js
 node_js:
 - '0.10'
 - '0.12'
-- iojs
+- '4'
+- '5'
 deploy:
   provider: npm
   email: jan@janraasch.com
@@ -12,5 +13,5 @@ deploy:
   on:
     tags: true
     repo: janraasch/javascript-commitment
-    node: '0.12'
+    node: '4'
     branch: master
