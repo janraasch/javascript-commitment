@@ -34,7 +34,7 @@
   "homepage": "https://github.com/janraasch/javascript-commitment",
   "devDependencies": {
     "babel": "^6.0.2",
-    "babel-cli": "^6.4.5",
+    "babel-cli": "^6.8.0",
     "babel-eslint": "^6.0.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-3": "^6.3.13",
