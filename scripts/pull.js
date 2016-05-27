@@ -1,6 +1,6 @@
 #!/usr/bin/env babel-node
 const crypto = require('crypto')
-const Download = require('download')
+const download = require('download')
 const memFs = require('mem-fs')
 const editor = require('mem-fs-editor')
 const ent = require('ent')
@@ -17,15 +17,11 @@ const hexdigest = (string) => crypto.createHash('md5').update(string).digest('he
 
 // Promisify `Download`.
 const getContentString = (url) => {
-  return new Promise((resolve, reject) => {
-    new Download({mode: '755'}).get(url).dest('./downloads').run((err, files) => {
-      if (err || !files.length || !files[0]) { return reject(err) }
-      else { return resolve(files[0].contents.toString()) }
-    })
-  })
+  return download(url, './downloads')
 }
 
-const transformMessages = (string) => {
+const transformMessages = (buffer) => {
+  const string = buffer.toString()
   let json = {}
   readlines(string).forEach(line => {
     let message = ent.decode(line.replace(/\n/g, '').replace(/<br\/>/g, '\n'))
@@ -34,7 +30,9 @@ const transformMessages = (string) => {
   return json
 }
 
-const transformHumans = (string) => [
+const transformHumans = (buffer) => {
+  const string = buffer.toString()
+  return [
     'Nick', 'Steve', 'Andy', 'Qi', 'Fanny', 'Sarah', 'Cord', 'Todd',
     'Chris', 'Pasha', 'Gabe', 'Tony', 'Jason', 'Randal', 'Ali', 'Kim',
     'Rainer', 'Guillaume', 'Kelan', 'David', 'John', 'Stephen', 'Tom',
@@ -45,6 +43,7 @@ const transformHumans = (string) => [
       .map(line => line.substring(6))
       .map(data => (data.indexOf('github:') === 0) ? data.substring(7) : data.split(' ')[0])
   )
+}
 
 async function update(file, url, transform) {
   console.log(`Updating ${file}...`)
