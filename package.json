@@ -40,7 +40,7 @@
     "babel-preset-stage-3": "^6.3.13",
     "download": "^5.0.0",
     "ent": "^2.2.0",
-    "eslint": "^2.5.1",
+    "eslint": "^2.10.0",
     "lodash": "^4.0.0",
     "mem-fs": "^1.0.1",
     "mem-fs-editor": "^2.0.4",
