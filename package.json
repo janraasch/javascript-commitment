@@ -41,7 +41,7 @@
     "download": "^5.0.0",
     "ent": "^2.2.0",
     "eslint": "^3.0.0",
-    "lodash": "^4.0.0",
+    "lodash": "^4.16.2",
     "mem-fs": "^1.0.1",
     "mem-fs-editor": "^2.0.4",
     "mocha": "^3.0.0"
