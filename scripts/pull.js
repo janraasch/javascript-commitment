@@ -1,4 +1,3 @@
-#!/usr/bin/env babel-node
 const crypto = require('crypto')
 const download = require('download')
 const memFs = require('mem-fs')
