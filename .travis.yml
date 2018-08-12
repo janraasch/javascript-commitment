@@ -8,7 +8,7 @@ deploy:
   provider: npm
   email: jan@janraasch.com
   api_key:
-    secure: KUvxS3p24a0cYTfGsIBlnf/I7XiCG2P5Zp9MjR87vivOwfMf3Su6mwHhOqyodpoGT+ZoEm9atgwHhLSfxfhyI9US6PTeRB1L7Bl1qEgodkC1zYwbfCkMp1+bkpJAiguazd2Iz/Cy7VtRESdIEdUpaBo/vY6HpU6DyLovplEjoUM=
+    secure: Afxp+TCrRVq74KctrVDe/pq7kEE7HIMJtBbl+fFkaWgTs1lh/rWSNiru5/IR5kPEzwGL+SiswBpUYCjp6SZAM99hrPoQiLrdHaNfm30bhURiEeuVZuDB+yl1ImcmhGhYg4uPycQkGG2dTC2/j1A/gt0DCTM9EjQ1CzRlbSmhBds=
   on:
     tags: true
     repo: janraasch/javascript-commitment
