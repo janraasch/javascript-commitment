@@ -91,7 +91,14 @@ module.exports = [
  "opatut",
  "Simone",
  "cube5",
+ "J",
  "James",
  "Igor",
- "Jordan"
+ "Jordan",
+ "Christian",
+ "Fabian",
+ "Gustavo",
+ "Alex",
+ "Ahmad",
+ "Shaun"
 ];
