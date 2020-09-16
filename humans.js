@@ -100,5 +100,9 @@ module.exports = [
  "Gustavo",
  "Alex",
  "Ahmad",
- "Shaun"
+ "Shaun",
+ "KneeNinetySeven",
+ "Rafael",
+ "ShanTulshi",
+ "Jonatha"
 ];
