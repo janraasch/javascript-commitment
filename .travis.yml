@@ -1,8 +1,9 @@
+dist: bionic
 language: node_js
 node_js:
-- '10'
-- '12'
-- '14'
+- 10
+- 12
+- 14
 deploy:
   provider: npm
   email: jan@janraasch.com
@@ -11,5 +12,5 @@ deploy:
   on:
     tags: true
     repo: janraasch/javascript-commitment
-    node: '12'
+    node: 12
     branch: master
