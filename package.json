@@ -35,7 +35,7 @@
   "devDependencies": {
     "download": "^8.0.0",
     "ent": "^2.2.0",
-    "eslint": "^7.9.0",
+    "eslint": "^8.1.0",
     "lodash": "^4.0.0",
     "mem-fs": "^2.0.0",
     "mem-fs-editor": "^9.0.0",
